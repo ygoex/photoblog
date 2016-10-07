@@ -88,17 +88,19 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-preview">
-                    <a href="post.html">
-                        <h2 class="post-title">
-                            Hola DjangoGirls!
-                        </h2>
-                        <h3 class="post-subtitle">
-                            Este es mi primer proyecto en Django :)
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Yolanda</a> on September 7th, 2016</p>
-                </div>
+                {% for post in posts %}
+                    <div class="post-preview">
+                        <a href="post.html">
+                            <h2 class="post-title">
+                                {{ post.title }}
+                            </h2>
+                            <h3 class="post-subtitle">
+                                {{ post.text|linebreaks }}
+                            </h3>
+                        </a>
+                        <p class="post-meta">Posted by <a href="#">Yolanda</a> on {{ post.published_date }}</p>
+                    </div>
+                {% endfor %}
                 <!-- <hr> -->
                 <!-- Pager -->
                 <!-- <ul class="pager">
